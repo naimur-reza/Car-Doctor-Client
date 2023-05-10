@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import img from "../../src/assets/images/login/login.svg";
 import { FaFacebook, FaGoogle, FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const handleLogin = () => {};
+  const { user, createUser, popUpGoogle } = useContext(AuthContext);
+  console.log(user);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+    createUser(email, password);
+  };
+  const handleGoogle = () => {
+    popUpGoogle();
+  };
   return (
     <div className="hero min-h-screen my-contain ">
       <div className="hero-content flex-col lg:flex-row justify-between">
@@ -74,10 +85,14 @@ const Login = () => {
                 <FaFacebook className="text-sky-600 cursor-pointer" size={28} />
                 <FaLinkedin className="text-sky-700 cursor-pointer" size={28} />
                 <FaGoogle
+                  onClick={handleGoogle}
                   className="text-orange-600 cursor-pointer"
                   size={28}
                 />
               </div>
+              <p className="my-text text-center py-3">
+                New To Here? <Link to={"/register"}>Register</Link>
+              </p>
             </div>
           </div>
         </form>
