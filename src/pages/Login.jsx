@@ -4,15 +4,14 @@ import { FaFacebook, FaGoogle, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 const Login = () => {
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const { user, createUser, popUpGoogle } = useContext(AuthContext);
+  const { user, signIn, popUpGoogle } = useContext(AuthContext);
   console.log(user);
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(email, password);
-    createUser(email, password);
+    signIn(email, password);
   };
   const handleGoogle = () => {
     popUpGoogle();
@@ -29,20 +28,6 @@ const Login = () => {
           className="card flex-shrink-0 w-full max-w-sm border-2 bg-base-100"
         >
           <div className="card-body ">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
-              <input
-                required
-                type="text"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="name"
-                className="input input-bordered"
-              />
-            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -80,7 +65,7 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
             <div>
-              <p className="text-center my-text">Or Sign Up With</p>
+              <p className="text-center my-text">Or Login With</p>
               <div className="flex items-center justify-center gap-3 pt-3">
                 <FaFacebook className="text-sky-600 cursor-pointer" size={28} />
                 <FaLinkedin className="text-sky-700 cursor-pointer" size={28} />
