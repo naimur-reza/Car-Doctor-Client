@@ -38,8 +38,8 @@ const Bookings = () => {
         <input
           required
           className="border-2 px-4 py-3 rounded-lg mb-5 w-1/2 outline-none font-semibold text-gray-400"
-          name="firstName"
-          placeholder="First Name"
+          name="name"
+          placeholder="Enter Name"
         />
 
         {/* include validation with required or other standard HTML validation rules */}

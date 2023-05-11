@@ -44,6 +44,9 @@ const Header = () => {
             <li className="my-text">
               <Link to={"/contact"}>Contact</Link>
             </li>
+            <li className="my-text">
+              <Link to={"/contact"}>My Bookings</Link>
+            </li>
             {user ? (
               <li className="my-text">
                 <Link onClick={logOut}>Log out</Link>
@@ -72,6 +75,9 @@ const Header = () => {
           </li>
           <li className="my-text">
             <Link to={"/services"}>Services</Link>
+          </li>
+          <li className="my-text">
+            <Link to={"/myBookings"}>My Bookings</Link>
           </li>
           <li className="my-text">
             <Link to={"/contact"}>Contact</Link>
