@@ -39,6 +39,27 @@ const Bookings = () => {
       }
     });
   };
+  const handleUpdate = (id) => {
+    fetch(`http://localhost:5000/bookings/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirmed" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          console.log(data);
+          const rest = bookings.filter((it) => it._id !== id);
+          const updated = bookings.find((it) => it._id === id);
+          updated.statue = "confirmed";
+          setBookings([updated, ...rest]);
+          Swal.fire("Confirmed!", "Your Order Confirmed.", "success");
+          setRender(!render);
+        }
+      });
+  };
   return (
     <div className="my-contain py-10">
       <h1>My Bookings:{bookings.length}</h1>
@@ -60,6 +81,7 @@ const Bookings = () => {
                 key={booking?._id}
                 handleDelete={handleDelete}
                 booking={booking}
+                handleUpdate={handleUpdate}
               />
             ))}
           </tbody>

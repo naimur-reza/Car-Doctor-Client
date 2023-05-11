@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 
-const BookingRow = ({ booking, handleDelete }) => {
-  const { img, title, _id, price, name } = booking;
-  const [data, setData] = useState(booking);
+const BookingRow = ({ booking, handleDelete, handleUpdate }) => {
+  const { img, title, _id, price, name, status } = booking;
 
   return (
     <tr>
@@ -49,7 +48,16 @@ const BookingRow = ({ booking, handleDelete }) => {
       </td>
       <td>{price}</td>
       <th>
-        <button className="btn btn-primary btn-xs">Confirm Order</button>
+        {status === "confirmed" ? (
+          <span>Confirmed</span>
+        ) : (
+          <button
+            onClick={() => handleUpdate(_id)}
+            className="btn btn-primary btn-xs"
+          >
+            Confirm Order
+          </button>
+        )}
       </th>
     </tr>
   );
