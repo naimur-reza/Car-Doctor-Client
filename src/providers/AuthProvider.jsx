@@ -37,19 +37,12 @@ const AuthProvider = ({ children }) => {
   // lets sign in from here
   const signIn = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        const loggedUser = res.user;
-        setUser(loggedUser);
-      })
-      .catch((err) => console.log(err));
+    return signInWithEmailAndPassword(auth, email, password);
   };
   // lets sign out form here
   const logOut = () => {
     setLoading(true);
-    return signOut(auth)
-      .then((res) => {})
-      .catch((err) => console.log(err));
+    return signOut(auth);
   };
   useEffect(() => {
     setLoading(true);

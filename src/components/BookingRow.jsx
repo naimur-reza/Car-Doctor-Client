@@ -10,11 +10,11 @@ const BookingRow = ({ booking, handleDelete, handleUpdate }) => {
         <label>
           <button
             onClick={() => handleDelete(_id)}
-            className="btn btn-circle btn-outline "
+            className="btn btn-circle btn-outline  btn-xs"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-3 w-3"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -49,7 +49,7 @@ const BookingRow = ({ booking, handleDelete, handleUpdate }) => {
       <td>{price}</td>
       <th>
         {status === "confirmed" ? (
-          <span>Confirmed</span>
+          <button className="btn btn-secondary btn-xs">Confirmed</button>
         ) : (
           <button
             onClick={() => handleUpdate(_id)}

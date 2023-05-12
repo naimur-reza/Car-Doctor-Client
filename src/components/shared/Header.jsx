@@ -4,6 +4,12 @@ import logo from "../../assets/logo.svg";
 import { AuthContext } from "../../providers/AuthProvider";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    localStorage.removeItem("car-access-token");
+    logOut()
+      .then((res) => {})
+      .catch((err) => console.log(err));
+  };
   console.log(user);
   return (
     <div className="navbar bg-base-100 my-contain">
@@ -12,11 +18,10 @@ const Header = () => {
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-4"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+              stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -27,8 +32,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-          >
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li className="my-text">
               <Link>Home</Link>
             </li>
@@ -49,7 +53,7 @@ const Header = () => {
             </li>
             {user ? (
               <li className="my-text">
-                <Link onClick={logOut}>Log out</Link>
+                <Link onClick={handleLogout}>Log out</Link>
               </li>
             ) : (
               <li className="my-text">

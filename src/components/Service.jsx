@@ -14,11 +14,11 @@ const Service = () => {
     <div className="py-14">
       <div className="space-y-3">
         {" "}
-        <h1 className="font-bold text-error text-center"> Services</h1>
+        <h1 className="font-bold text-error text-center text-xl"> Services</h1>
         <h1 className="text-4xl text-center font-semibold">
           Our Services Area
         </h1>
-        <p className=" px-80 text-center tracking-wide">
+        <p className=" lg:px-80 text-center tracking-wide">
           The majority have suffered alteration in some form, by injected
           humour, or randomised words which don't look even slightly believable.{" "}
         </p>

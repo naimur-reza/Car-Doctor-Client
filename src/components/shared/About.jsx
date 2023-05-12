@@ -16,7 +16,7 @@ const About = () => {
           </div>
           <img
             src={img1}
-            className="absolute top-1/2 left-1/2 border-4 h-60 border-white w-72 rounded-lg shadow-2xl "
+            className="absolute top-1/2 lg:left-1/2 left-1/3 border-4 h-60 border-white w-72 rounded-lg shadow-2xl "
           />
         </div>
         <div className="max-w-lg space-y-4">

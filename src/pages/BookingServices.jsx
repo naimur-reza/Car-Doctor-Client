@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ScrollRestoration, useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 const Bookings = () => {
   const data = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -27,6 +28,7 @@ const Bookings = () => {
       .then((response) => console.log(response))
       .catch((err) => console.error(err));
     form.reset();
+    Swal.fire("Successfully Booked!", "Your Order Booked.", "success");
   };
   return (
     <div className="my-contain">
@@ -52,20 +54,28 @@ const Bookings = () => {
         <br />
         <input
           required
-          className="border-2 px-4 py-3 rounded-lg mb-5 w-1/2 outline-none font-semibold text-gray-400"
+          className="border-2 px-4 py-3 bg-white rounded-lg mb-5 w-1/2 outline-none font-semibold text-gray-400"
           name="price"
           defaultValue={"$" + price}
           placeholder="Due Amount"
+          aria-disabled={true}
+          disabled
         />
         <input
           required
-          className="border-2 px-4 py-3 rounded-lg mb-5 w-1/2 outline-none font-semibold text-gray-400"
+          className="border-2 px-4 py-3 rounded-lg mb-5 w-1/2 outline-none bg-white font-semibold text-gray-400"
           name="email"
           placeholder="Your Email"
           defaultValue={user?.email}
+          aria-disabled={true}
+          disabled
         />
 
-        <input className=" btn-error btn btn-block" type="submit" />
+        <input
+          className=" btn-error btn btn-block"
+          type="submit"
+          value={"BOOK NOW"}
+        />
       </form>
     </div>
   );

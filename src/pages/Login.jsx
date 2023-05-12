@@ -1,17 +1,40 @@
 import React, { useContext, useState } from "react";
 import img from "../../src/assets/images/login/login.svg";
 import { FaFacebook, FaGoogle, FaLinkedin } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const { user, signIn, popUpGoogle } = useContext(AuthContext);
   console.log(user);
+  const location = useLocation();
+  console.log(location);
+  const from = location.state?.from || "/";
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(email, password);
-    signIn(email, password);
+    signIn(email, password)
+      .then((res) => {
+        const user = res.user;
+        const loggedUser = { email: user.email };
+
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ loggedUser }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("car-access-token", data);
+          });
+
+        // navigate(from);
+      })
+      .catch((err) => console.log(err));
   };
   const handleGoogle = () => {
     popUpGoogle();
@@ -25,8 +48,7 @@ const Login = () => {
         </div>
         <form
           onSubmit={handleLogin}
-          className="card flex-shrink-0 w-full max-w-sm border-2 bg-base-100"
-        >
+          className="card flex-shrink-0 w-full max-w-sm border-2 bg-base-100">
           <div className="card-body ">
             <div className="form-control">
               <label className="label">
@@ -85,5 +107,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

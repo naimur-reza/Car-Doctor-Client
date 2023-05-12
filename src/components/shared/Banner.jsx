@@ -25,7 +25,7 @@ const Banner = () => {
         className="mySwiper relative my-contain "
       >
         <SwiperSlide className="relative ">
-          <img className="h-[580px] -z-10  w-full " src={img1} />
+          <img className="lg:h-[580px] -z-10  w-full " src={img1} />
           <div className="  z-50 inset-0  bg-gradient-to-r from-black bg-opacity-50 h-full   absolute flex items-center">
             <div className="max-w-2xl space-y-8 mt-10 px-10">
               {" "}
@@ -44,12 +44,12 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative ">
-          <img className="h-[580px] -z-10  w-full " src={img2} />
+          <img className="lg:h-[580px] -z-10  w-full " src={img2} />
           <div className="  z-50 inset-0  bg-gradient-to-r from-black bg-opacity-50 h-full   absolute flex items-center">
             <div className="max-w-2xl space-y-8 mt-10 px-10">
               {" "}
               <h1 className="lg:text-6xl  z-10 font-bold text-white  ">
-                Afordable Car Price For Servicing
+                Best Car Price For Servicing
               </h1>{" "}
               <p className="text-white tracking-wide font-semibold">
                 There Are Many Variations Of Passengers Of Available , But The
@@ -63,12 +63,12 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative ">
-          <img className="h-[580px] -z-10  w-full " src={img3} />
+          <img className="lg:h-[580px] -z-10  w-full " src={img3} />
           <div className="  z-50 inset-0  bg-gradient-to-r from-black bg-opacity-50 h-full   absolute flex items-center">
             <div className="max-w-2xl space-y-8 mt-10 px-10">
               {" "}
               <h1 className="lg:text-6xl  z-10 font-bold text-white  ">
-                Afordable Car Price For Servicing
+                Awesome Car Price For Servicing
               </h1>{" "}
               <p className="text-white tracking-wide font-semibold">
                 There Are Many Variations Of Passengers Of Available , But The
@@ -82,12 +82,12 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative ">
-          <img className="h-[580px] -z-10  w-full " src={img4} />
+          <img className="lg:h-[580px] -z-10  w-full " src={img4} />
           <div className="  z-50 inset-0  bg-gradient-to-r from-black bg-opacity-50 h-full   absolute flex items-center">
             <div className="max-w-2xl space-y-8 mt-10 px-10">
               {" "}
               <h1 className="lg:text-6xl  z-10 font-bold text-white  ">
-                Afordable Car Price For Servicing
+                Good Car Price For Servicing
               </h1>{" "}
               <p className="text-white tracking-wide font-semibold">
                 There Are Many Variations Of Passengers Of Available , But The
@@ -101,12 +101,12 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative ">
-          <img className="h-[580px] -z-10  w-full " src={img5} />
+          <img className="lg:h-[580px] -z-10  w-full " src={img5} />
           <div className="  z-50 inset-0  bg-gradient-to-r from-black bg-opacity-50 h-full   absolute flex items-center">
             <div className="max-w-2xl space-y-8 mt-10 px-10">
               {" "}
               <h1 className="lg:text-6xl  z-10 font-bold text-white  ">
-                Afordable Car Price For Servicing
+                Great Car Price For Servicing
               </h1>{" "}
               <p className="text-white tracking-wide font-semibold">
                 There Are Many Variations Of Passengers Of Available , But The
@@ -120,7 +120,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative ">
-          <img className="h-[580px] -z-10  w-full " src={img6} />
+          <img className="lg:h-[580px] -z-10  w-full " src={img6} />
           <div className="  z-50 inset-0  bg-gradient-to-r from-black bg-opacity-50 h-full   absolute flex items-center">
             <div className="max-w-2xl space-y-8 mt-10 px-10">
               {" "}

@@ -6,14 +6,16 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const [render, setRender] = useState(false);
   const { user } = useContext(AuthContext);
-  console.log(bookings);
   useEffect(() => {
     fetch(`http://localhost:5000/bookings?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, [render]);
-
-  console.log(render);
+  if (bookings.length === 0) {
+    return (
+      <h1 className="text-center text-4xl font-semibold py-24">No Bookings </h1>
+    );
+  }
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -33,7 +35,6 @@ const Bookings = () => {
             console.log(data);
             if (data.deletedCount > 0) {
               setRender(!render);
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
       }
@@ -62,7 +63,9 @@ const Bookings = () => {
   };
   return (
     <div className="my-contain py-10">
-      <h1>My Bookings:{bookings.length}</h1>
+      <h1 className="text-lg py-3 font-semibold">
+        Total Bookings: {bookings.length}
+      </h1>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* head */}
