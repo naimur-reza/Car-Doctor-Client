@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import BookingRow from "../components/BookingRow";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const [render, setRender] = useState(false);
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   useEffect(() => {
     fetch(`http://localhost:5000/bookings?email=${user.email}`, {
@@ -14,7 +16,14 @@ const Bookings = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => setBookings(data));
+      .then((data) => {
+        if (!data.error) {
+          setBookings(data);
+        } else {
+          navigate("/");
+          alert(data.message);
+        }
+      });
   }, [render]);
   if (bookings.length === 0) {
     return (
