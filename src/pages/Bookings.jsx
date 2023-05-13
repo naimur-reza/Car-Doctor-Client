@@ -7,7 +7,12 @@ const Bookings = () => {
   const [render, setRender] = useState(false);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user.email}`)
+    fetch(`http://localhost:5000/bookings?email=${user.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, [render]);
