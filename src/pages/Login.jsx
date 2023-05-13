@@ -30,9 +30,8 @@ const Login = () => {
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("car-access-token", data);
+            navigate(from);
           });
-
-        // navigate(from);
       })
       .catch((err) => console.log(err));
   };

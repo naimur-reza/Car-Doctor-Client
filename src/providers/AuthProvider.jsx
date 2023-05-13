@@ -31,6 +31,17 @@ const AuthProvider = ({ children }) => {
       .then((res) => {
         const loggedUser = res.user;
         setUser(loggedUser);
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ loggedUser }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("car-access-token", data);
+          });
       })
       .catch((err) => console.log(err));
   };
